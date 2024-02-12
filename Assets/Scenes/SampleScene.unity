@@ -298,6 +298,9 @@ MonoBehaviour:
   rb: {fileID: 64811172}
   forceApply: {x: 0, y: 0}
   forceDamp: 1.2
+  dodgeSpeed: 7
+  dodgeFrames: 0
+  dodgevect: {x: 0, y: 0}
 --- !u!1 &471288966
 GameObject:
   m_ObjectHideFlags: 0
