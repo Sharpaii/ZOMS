@@ -14,13 +14,17 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 dodgevect;
     public float dodgeScalar;
 
+    // The move function was moved to the Player class in Player.cs
+
     // Update is called once per frame
+    /*
     void Update()
     {
         Move();
     }
+    */
 
-    void Move()
+    public void Move()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
@@ -39,26 +43,27 @@ public class PlayerMovement : MonoBehaviour
         // ROLLING FORWARD AND BACKSTEP FUNCTION
         if (Input.GetKeyDown(KeyCode.Space) && moveForce != Vector2.zero && dodgeFrames == 0) // Cannot roll when standing still
         {
-            dodgeFrames = 240; // No set FPS yet, TBD
+            dodgeFrames = 45; // No set FPS yet, TBD
             dodgevect = moveForce.normalized;
             dodgeScalar = 1.0f;
         }
         else if (Input.GetKeyDown(KeyCode.F) && moveForce != Vector2.zero && dodgeFrames == 0) // Buttons for rolling/backstep subject to change
         {
-            dodgeFrames = 120;
+            dodgeFrames = 25;
             Vector2 changeDirection = new Vector2((moveForce.x * -1), (moveForce.y * -1));
             dodgevect = changeDirection.normalized;
             dodgeScalar = 2.0f;
         }
 
+        // TODO: Change this logic for animation purposes
         if (dodgeFrames != 0)
         {
             dodgeFrames -= 1;
-            if (dodgeFrames * dodgeScalar > 180)
+            if (dodgeFrames * dodgeScalar > 33)
             {
                 rb.velocity = dodgevect.normalized * (dodgeSpeed * 2.0f); // Initial Speed Boost on Roll
             }
-            else if (dodgeFrames * dodgeScalar > 120)
+            else if (dodgeFrames * dodgeScalar > 20)
             {
                 rb.velocity = dodgevect.normalized * dodgeSpeed;
                 // TODO: Intangibility
@@ -76,5 +81,10 @@ public class PlayerMovement : MonoBehaviour
         {
             forceApply += new Vector2(-20, 0);
         }
+    }
+
+    void intangible()
+    {
+        // TODO: Complete when hit detection is implemented
     }
 }
