@@ -14,15 +14,10 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 dodgevect;
     public float dodgeScalar;
 
-    // The move function was moved to the Player class in Player.cs
-
-    // Update is called once per frame
-    /*
     void Update()
     {
         Move();
     }
-    */
 
     public void Move()
     {
