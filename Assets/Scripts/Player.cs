@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public float defense;
     public float speed;
     public float critChance;
-    PlayerMovement move;
+    //PlayerMovement move;
 
     void Start()
     {
@@ -16,12 +16,12 @@ public class Player : MonoBehaviour
         QualitySettings.vSyncCount = 1;
         Application.targetFrameRate = 60;
 
-        move = FindObjectOfType<PlayerMovement>();
+        //move = FindObjectOfType<PlayerMovement>();
     }
 
     void Update()
     {
-        move.Move();
+        //move.Move();
     }
 }
 
