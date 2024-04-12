@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    public GameObject player;
     public float moveSpeed;
     public Rigidbody2D rb;
     public Vector2 forceApply;
@@ -14,8 +14,17 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 dodgevect;
     public float dodgeScalar;
 
+    void Start()
+    {
+        // Set FPS to 60
+        QualitySettings.vSyncCount = 1;
+        Application.targetFrameRate = 60;
+    }
+
     void Update()
     {
+        var speedComponent = player.GetComponent<Speed>();
+        moveSpeed = speedComponent.currentSpeed;
         Move();
     }
 
