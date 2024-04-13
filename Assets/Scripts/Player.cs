@@ -4,24 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float health;
-    public float defense;
-    public float speed;
-    public float critChance;
-    //PlayerMovement move;
+    public float defense; // Will be implemented
+    public float critChance; // Will be implemented
 
-    void Start()
+    public Inventory inventory;
+
+    private void Awake()
     {
-        // Set FPS to 60
-        QualitySettings.vSyncCount = 1;
-        Application.targetFrameRate = 60;
-
-        //move = FindObjectOfType<PlayerMovement>();
-    }
-
-    void Update()
-    {
-        //move.Move();
+        inventory = new Inventory(21);
     }
 }
 
