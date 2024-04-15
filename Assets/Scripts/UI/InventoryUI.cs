@@ -29,10 +29,12 @@ public class InventoryUI : MonoBehaviour
         {
             inventoryPanel.SetActive(true);
             Setup();
+            Time.timeScale = 0;
         }
         else
         {
             inventoryPanel.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 
