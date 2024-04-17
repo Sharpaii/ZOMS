@@ -58689,6 +58689,7 @@ GameObject:
   - component: {fileID: 1625267192}
   - component: {fileID: 1625267191}
   - component: {fileID: 1625267194}
+  - component: {fileID: 1625267195}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -58737,9 +58738,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
-    type: 3}
-  m_Color: {r: 0.5849056, g: 0.13463865, b: 0.13463865, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 3b1fd7e852eedcb419aa2aeced75df87, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -58877,6 +58877,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1625267195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625267186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42dd41939e767a4babaac0f7e42ff0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiPath: {fileID: 1625267192}
 --- !u!1001 &1632927963
 PrefabInstance:
   m_ObjectHideFlags: 0
