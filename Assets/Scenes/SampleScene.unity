@@ -595,6 +595,7 @@ GameObject:
   - component: {fileID: 64811177}
   - component: {fileID: 64811178}
   - component: {fileID: 64811179}
+  - component: {fileID: 64811180}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -638,7 +639,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.875, y: 0.9375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -715,8 +716,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
-    type: 3}
+  m_Sprite: {fileID: 62536140, guid: cd68c6ff5a26e5c4cb9aacb0d234a14c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -764,6 +764,8 @@ MonoBehaviour:
   dodgeFrames: 0
   dodgevect: {x: 0, y: 0}
   dodgeScalar: 0
+  anim: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!114 &64811176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,6 +823,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 20
   currentSpeed: 0
+--- !u!95 &64811180
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64811170}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e9eeef601ee1b0742a7c2d97a85aa3c2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &72520939
 GameObject:
   m_ObjectHideFlags: 0
@@ -62064,7 +62087,7 @@ PrefabInstance:
     - target: {fileID: 4640706298941346497, guid: a7494959fe73bb84087d9e5e2e4b2078,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3795066
+      value: 8.41
       objectReference: {fileID: 0}
     - target: {fileID: 4640706298941346497, guid: a7494959fe73bb84087d9e5e2e4b2078,
         type: 3}

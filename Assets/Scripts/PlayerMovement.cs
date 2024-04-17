@@ -13,12 +13,17 @@ public class PlayerMovement : MonoBehaviour
     public int dodgeFrames;
     public Vector2 dodgevect;
     public float dodgeScalar;
+    public Animator anim;
+    public SpriteRenderer sprite;
+
 
     void Start()
     {
         // Set FPS to 60
         QualitySettings.vSyncCount = 1;
         Application.targetFrameRate = 60;
+        anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -33,9 +38,31 @@ public class PlayerMovement : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
+        // Flip Character
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            sprite.flipX = true;
+        }
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            sprite.flipX = false;
+        }
+
+        // Animation Logic
+        if (moveX == 0 && moveY == 0)
+        {
+            anim.SetBool("isMoving", false);
+        }
+        else
+        {
+            anim.SetBool("isMoving", true);
+        }
+
+
         Vector2 moveDirection = new Vector2(moveX, moveY).normalized;
         Vector2 moveForce = moveDirection * moveSpeed;
 
+     
         moveForce += forceApply;
         forceApply /= forceDamp;
         if (Mathf.Abs(forceApply.x) <= 0.01f && Mathf.Abs(forceApply.y) <= 0.01f)
@@ -84,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.collider.CompareTag("Enemy"))
         {
             forceApply += new Vector2(-20, 0);
+            anim.SetTrigger("isHit");
         }
     }
 
