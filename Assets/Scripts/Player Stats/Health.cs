@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public HealthBar healthBar;
     public GameObject loseLevelPanel;
 
     // Start is called before the first frame update
@@ -13,6 +14,7 @@ public class Health : MonoBehaviour
     {
         currentHealth = maxHealth;
         loseLevelPanel.SetActive(false);
+        healthBar.SetHealth(currentHealth);
     }
 
     public void takeDamage(int amount)
@@ -24,6 +26,8 @@ public class Health : MonoBehaviour
             loseLevelPanel.SetActive(true);
             Time.timeScale = 0;
         }
+
+        healthBar.SetHealth(currentHealth);
     }
 
     public void healDamage(int amount)
@@ -34,5 +38,7 @@ public class Health : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+
+        healthBar.SetHealth(currentHealth);
     }
 }
