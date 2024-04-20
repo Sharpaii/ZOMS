@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public float dodgeScalar;
     public Animator anim;
     public SpriteRenderer sprite;
+    public int invincibiliyFrames;
 
 
     void Start()
@@ -62,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 moveDirection = new Vector2(moveX, moveY).normalized;
         Vector2 moveForce = moveDirection * moveSpeed;
 
-     
+
         moveForce += forceApply;
         forceApply /= forceDamp;
         if (Mathf.Abs(forceApply.x) <= 0.01f && Mathf.Abs(forceApply.y) <= 0.01f)
@@ -97,26 +98,65 @@ public class PlayerMovement : MonoBehaviour
             else if (dodgeFrames * dodgeScalar > 20)
             {
                 rb.velocity = dodgevect.normalized * dodgeSpeed;
-                // TODO: Intangibility
             }
             else
             {
                 rb.velocity = dodgevect.normalized * (dodgeSpeed * .4f); // Slower at end of Roll to simulate getting up
+                GetComponent<Collider2D>().enabled = true;
             }
+        }
+
+        // Invincibility "Animation"
+        if (invincibiliyFrames > 0)
+        {
+            if (invincibiliyFrames > 100)
+            {
+                GetComponent<SpriteRenderer>().enabled = false;
+                invincibiliyFrames--;
+            }
+            else if (invincibiliyFrames > 75)
+            {
+                GetComponent<SpriteRenderer>().enabled = true;
+                invincibiliyFrames--;
+            }
+            else if (invincibiliyFrames > 50)
+            {
+                GetComponent<SpriteRenderer>().enabled = false;
+                invincibiliyFrames--;
+            }
+            else if (invincibiliyFrames > 25)
+            {
+                GetComponent<SpriteRenderer>().enabled = true;
+                invincibiliyFrames--;
+            }
+            else if (invincibiliyFrames > 0)
+            {
+                GetComponent<SpriteRenderer>().enabled = false;
+                invincibiliyFrames--;
+            }
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().enabled = true;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Enemy"))
+        // Checks for intagibility
+        if (dodgeFrames > 0 && collision.collider.CompareTag("Enemy"))
         {
-            forceApply += new Vector2(-20, 0);
-            anim.SetTrigger("isHit");
+            GetComponent<Collider2D>().enabled = false;
         }
-    }
+        else if (invincibiliyFrames > 0)
+        {
 
-    void intangible()
-    {
-        // TODO: Complete when hit detection is implemented
+        }
+        else if (collision.collider.CompareTag("Enemy"))
+        {
+            forceApply += new Vector2(20 * (Input.GetAxisRaw("Horizontal") * -1), 20 * (Input.GetAxisRaw("Vertical") * -1));
+            anim.SetTrigger("isHit");
+            invincibiliyFrames = 125;
+        }
     }
 }

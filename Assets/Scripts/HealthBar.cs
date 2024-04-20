@@ -20,10 +20,6 @@ public class HealthBar : MonoBehaviour
     {
         healthBar.maxValue = playerHealth.maxHealth;
         healthBar.value = hp;
-    }
-
-    public void Update()
-    {
         textBox.SetText(playerHealth.currentHealth + "/" + playerHealth.maxHealth);
     }
 }
