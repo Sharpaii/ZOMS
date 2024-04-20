@@ -12,12 +12,13 @@ public class Inventory
         public int count;
         public int maxAllowed;
         public Sprite icon;
+        public Collectable item;
 
         public Slot()
         {
             type = CollectableType.NONE;
             count = 0;
-            maxAllowed = 5;
+            maxAllowed = 99;
         }
 
         public bool CanAddItem()
