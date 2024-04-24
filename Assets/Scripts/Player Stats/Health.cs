@@ -15,7 +15,6 @@ public class Health : MonoBehaviour
     {
         currentHealth = maxHealth;
         loseLevelPanel.SetActive(false);
-        healthBar.SetHealth(currentHealth);
     }
 
     public void takeDamage(int amount)
