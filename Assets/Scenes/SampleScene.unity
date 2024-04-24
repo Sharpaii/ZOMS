@@ -79418,7 +79418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c3e3c852dd1e2e488c971d8ab4f42fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 2038761421}
   playerHealth: {fileID: 0}
   textBox: {fileID: 0}
 --- !u!1001 &2045007826

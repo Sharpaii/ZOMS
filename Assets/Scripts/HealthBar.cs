@@ -11,7 +11,6 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
-        healthBar = GetComponent<Slider>();
         healthBar.maxValue = playerHealth.maxHealth;
         healthBar.value = playerHealth.maxHealth;
         textBox = GetComponentInChildren<TMP_Text>();
