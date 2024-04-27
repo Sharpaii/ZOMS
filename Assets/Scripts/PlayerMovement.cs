@@ -154,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (collision.collider.CompareTag("Enemy"))
         {
-            forceApply += new Vector2(20 * (Input.GetAxisRaw("Horizontal") * -1), 20 * (Input.GetAxisRaw("Vertical") * -1));
+            //forceApply += new Vector2(20 * (Input.GetAxisRaw("Horizontal") * -1), 20 * (Input.GetAxisRaw("Vertical") * -1));
             anim.SetTrigger("isHit");
             invincibiliyFrames = 125;
         }
